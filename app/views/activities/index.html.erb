@@ -1,0 +1,14 @@
+<h3>
+  Notifications
+</h3>
+<% @activities.each do |activity| %>
+    <div class="#activity">
+      <h5>
+        <strong>
+          <%= activity.owner.first_name.capitalize %> <%= activity.owner.last_name.capitalize %>
+        </strong>
+        <%= render_activity activity %>
+      </h5>
+    </div>
+  </div>
+<% end %>

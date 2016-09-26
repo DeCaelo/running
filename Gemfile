@@ -24,7 +24,7 @@ gem "jquery-fileupload-rails"
 gem "geocoder"
 gem "pundit"
 gem "simple_calendar", "~> 2.0"
-gem 'public_activity'
+gem 'public_activity' #chaps-io
 
 
 source 'https://rails-assets.org' do
