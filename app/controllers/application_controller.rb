@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
+  before_action :set_current_user_activities
 
   include Pundit
 
@@ -25,7 +26,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :photo, :run_level])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :job_title, :photo, :run_level])
   end
 
   private
@@ -34,6 +35,16 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /^(active_)?admin/
   end
 
+  def set_current_user_activities
+    if user_signed_in?
+      event_ids = current_user.events_as_participant.map do |event|
+        event.id
+      end
+      @activities = PublicActivity::Activity.order("created_at desc").where(trackable_id: event_ids, read_at: nil)
+    else
+      @activities = []
+    end
+  end
 
   def default_url_options
     { host: ENV['HOST'] || 'localhost:3000' }

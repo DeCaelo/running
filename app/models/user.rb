@@ -14,7 +14,38 @@ class User < ApplicationRecord
   validates :run_level, presence: true
 
   def full_name
-    "#{first_name} #{last_name}"
+    "#{first_name.capitalize} #{last_name.capitalize}"
+  end
+
+  def events_as_participant
+    participations.map(&:event)
+  end
+
+  def events_only_as_participant
+    events_as_participant.select {|event| event.user != self}
+  end
+
+  def my_run_buddies
+    events_as_participant.map{|event| event.users.where.not(id: self.id).where(users: {company: self.company})}.flatten.uniq
+  end
+
+  def adversaires_buddies
+    events_as_participant.map{|event| event.users.where.not(id: self.id, users: {company: self.company})}.flatten.uniq
+
+  end
+
+  def private_events
+    private_events = self.events_as_participant.select {|event| event.private && event.user_id != self.id}
+  end
+
+  def refused_events
+    events = []
+    self.participations.each do |participation|
+      if participation.status == "can t go"
+        events << participation.event
+      end
+    end
+    events
   end
 
 end

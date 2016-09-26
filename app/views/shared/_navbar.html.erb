@@ -2,7 +2,7 @@
   <!-- Logo -->
   <div class="navbar-wagon-left">
     <% if user_signed_in? %>
-      <%= link_to t(".top_call_to_action", default: "Prochains Run"), new_user_registration_path, class: "no-btn" %>
+      <%= link_to t(".top_call_to_action", default: "Prochains Run"), events_path, class: "no-btn" %>
     <% else %>
       <%= link_to 'Connexion', new_user_session_path, class:"button button_green" %>
     <%end %>
@@ -21,13 +21,13 @@
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
-      <button type="button" class="btn-medium" data-toggle="modal" data-target="#new_event_form">
+      <button type="button" class="button button_green" data-toggle="modal" data-target="#new_event_form">
         Nouveau Run
       </button>
 
       <!-- Notification -->
       <div class="navbar-wagon-item" id="notifications">
-        notif
+        <%= render 'shared/notifications', activities: @activities %>
       </div>
     </div>
 
@@ -37,7 +37,7 @@
           <div class="dropdown-toggle" , id="navbar-wagon-menu", data-toggle="dropdown", aria-hidden="true">
             <span class= "white-name">
               <i class="fa fa-user no-btn" id="character"></i>
-              <%= current_user.first_name %> <%= current_user.last_name %>
+              <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %>
             </span>
         </div>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
