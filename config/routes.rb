@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :users, only: [ :edit, :update, :destroy ]
   resources :events
   resources :activities, only: [:index]
+  mount Attachinary::Engine => "/attachinary"
   get 'activities/:id/done' => "activities#mark_as_read", as: :read_activity
 end
