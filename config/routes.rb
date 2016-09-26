@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/profile' => 'users#profile'
   resources :users, only: [ :edit, :update, :destroy ]
-  resources :participations, only: [:create]
+  resources :events
+  resources :activities, only: [:index]
+  get 'activities/:id/done' => "activities#mark_as_read", as: :read_activity
 end

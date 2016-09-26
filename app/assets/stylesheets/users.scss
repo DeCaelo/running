@@ -1,3 +1,153 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.profil {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.profil_header {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 12px;
+  margin-bottom: 50px;
+}
+
+
+.avatar-description {
+  text-align: center;
+  width: 25%;
+  font-size: 15px;
+  background-color: white;
+  padding: 25px 20px;
+  margin-top: 50px;
+  border-radius: 12px;
+  h5 {
+    margin-bottom: 5px;
+  }
+}
+
+.wrapper-grey {
+  min-height: calc(100vh-70px);
+}
+
+.stats {
+  // display: flex;
+  // justify-content: space-around;
+  // align-items: center;
+  background-color: white;
+  // border-radius: 12px;
+  margin-top:50px;
+  width: 70%;
+  border-radius: 12px;
+}
+
+.icon-wrapper {
+  flex: 0 0 20px;
+}
+
+#speed {
+  font-family: Libre Baskerville;
+  font-weight: bold;
+}
+
+#distance {
+  font-family: Libre Baskerville;
+  font-weight: bold;
+}
+
+#speed-number {
+  padding-top: 0px;
+}
+
+#distance-number {
+  padding-top: 0px;
+}
+
+// #time-run {
+//   padding-top: 20px;
+// }
+
+.number {
+  font-size: 75px;
+}
+
+.mybuddies {
+  background-color: white;
+  border-radius: 12px;
+  margin-bottom: 50px;
+  text-align: center;
+  h3 {
+    color: $blue;
+    margin-bottom: 0px;
+  }
+}
+
+.mybuddies-title {
+   position: relative;
+   z-index: 4;
+   overflow: hidden;
+   text-align: center;
+   color: $blue;
+ &:before, &:after {
+     position: absolute;
+     top: 51%;
+     overflow: hidden;
+     width: 50%;
+     height: 1px;
+     content: '\a0';
+     background-color: $blue;
+ }
+ &:before {
+     margin-left: -50%;
+     text-align: right;
+ }
+}
+
+.mybuddies_avatars {
+  display: flex;
+  align-items: center;
+  img{
+    margin: 20px 0px 10px 20px;
+  }
+}
+
+
+.event-next {
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+}
+
+.size_text {
+  position: absolute;
+  top: 10px;
+  font-size: 21px;
+  padding-left: 257px;
+
+}
+
+.pad-top-more {
+  padding-top: 140px;
+
+}
+
+.button-update {
+  border-radius: 12px;
+  // background-color: white;
+  height: 117px;
+  text-align: center;
+  padding-top: 63px;
+  margin-left: -5px;
+  margin-top: 20px;
+  padding-bottom: 68px;
+}
+
+#participations {
+  font-family: libre baskerville;
+  font-weight: bold;
+  p {
+    font-family: Libre Baskerville;
+  }
+}

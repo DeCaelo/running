@@ -32,8 +32,16 @@ $base-height: 1.4;
 $brand-color: #D23333;
 
 $red: #EE5F5B;
-$blue: #469AE0;
-$yellow: #FDB631;
+$blue:  #90C1D4;
+$dark-blue: #134074;
+$yellow: #EFC86B;
 $orange: #E67E22;
-$green: #32B796;
-$gray: #000000;
+$green: #30BA60;
+$white: #f9f9f9;
+
+// Gray scale
+$gray-darker:  lighten(#000, 13.5%); // #222
+$gray-dark:    lighten(#000, 20%);   // #333
+$gray:         lighten(#000, 33.5%); // #555
+$gray-light:   lighten(#000, 46.7%); // #777
+$gray-lighter: lighten(#000, 93.5%); // #eee

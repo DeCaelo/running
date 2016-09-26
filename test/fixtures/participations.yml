@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  event: one
+  status: MyString
+  running_time: 1
+  kilometers: 1
+
+two:
+  user: two
+  event: two
+  status: MyString
+  running_time: 1
+  kilometers: 1
