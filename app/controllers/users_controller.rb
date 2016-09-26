@@ -3,6 +3,15 @@ class UsersController < ApplicationController
 
   skip_after_action :verify_authorized
 
+  def random
+    @users = User.where(run_level: current_user.run_level).where.not(id: current_user.id)
+    @random_user = @users.sample
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   def profile
   end
 
@@ -33,7 +42,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-   params.require(:user).permit(:last_name, :first_name, :email, :run_level)
+   params.require(:user).permit(:last_name, :first_name, :email, :run_level, :expectation, :description, :photo)
 
   end
 end

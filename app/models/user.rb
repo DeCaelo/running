@@ -18,7 +18,7 @@ class User < ApplicationRecord
   RUNNER_LEVEL = ["Débutant", "Intermédiaire", "Confirmé"]
 
   def full_name
-    "#{first_name.capitalize} #{last_name.capitalize}"
+    "#{first_name} #{last_name}"
   end
 
   def events_as_participant

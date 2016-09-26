@@ -5,6 +5,14 @@ class Event < ApplicationRecord
   has_many :users, through: :participations
   has_attachments :photos, maximum: 10
 
+  MEETING = ["Run rapide", "Run fractionné", "Run endurance", "Blabla run", "Marche rapide", "Marche plaisante"]
+
+  validates :type_of, inclusion: { in: MEETING }
+  validates :datetime, presence: true
+  validates :private, :inclusion => { :in => [true, false] }
+  validates :meeting_point, presence: true
+  validate :goal
+
   def goal
     if time_goal.nil? && trail_goal.nil?
       errors.add(:time_goal, "You have to choose a goal")

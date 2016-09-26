@@ -2,7 +2,7 @@
   <!-- Logo -->
   <div class="navbar-wagon-left">
     <% if user_signed_in? %>
-      <%= link_to t(".top_call_to_action", default: "Prochains Run"), events_path, class: "no-btn" %>
+      <%= link_to t(".top_call_to_action", default: "Prochains Run"), events_path, class: "button button_green" %>
     <% else %>
       <%= link_to 'Connexion', new_user_session_path, class:"button button_green" %>
     <%end %>
@@ -85,7 +85,7 @@
         </div>
         <div class="modal-body">
           <div class="container-fluid bd-example-row">
-            event
+            <%= render 'events/new', event: Event.new %>
           </div>
         </div>
       </div>
