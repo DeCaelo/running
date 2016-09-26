@@ -13,6 +13,10 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :run_level, presence: true
 
+  RUNNING_TYPE = ["Running rapide", "Running fractionné", "Running endurance", "Running blabla", "Marche rapide", "Marche plaisante"]
+
+  RUNNER_LEVEL = ["Débutant", "Intermédiaire", "Confirmé"]
+
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
   end

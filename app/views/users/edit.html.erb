@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="wrapper-white">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 profile-form">
+
+        <br>
+        <%= simple_form_for(@user) do |f| %>
+          <div class="row">
+            <div class="col-xs-12">
+              attachinary photo
+            </div>
+            <br>
+            <div class="col-xs-12 col-sm-6">
+              <%= f.input :first_name, label: "Prénom" %>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <%= f.input :last_name, label: "Nom de famille" %>
+            </div>
+            <div class="col-xs-12">
+              <%= f.input :email, :readonly => true %>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <%= f.input :run_level, label: "Ton niveau de runner", collection: User::RUNNER_LEVEL %>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <%= f.input :expectation, label: "Ton type de running", collection: User::RUNNING_TYPE %>
+            </div>
+            <div class="col-xs-12">
+              <%= f.input :description, label: "À propos de toi" %>
+            </div>
+            <div class="col-xs-12 col-md-4 col-md-offset-4">
+              <div class="actions text-center">
+                <%= f.button :submit, value: "Mettre à jour", class: 'btn-medium-full btn-medium-full-black btn-full-width'%>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -58,19 +58,29 @@
           <div class="mybuddies">
             <h3 class="mybuddies-title">Mes collègues de run</h3>
             <div class="mybuddies_avatars">
-            my_run_buddies
+            <% @user.my_run_buddies.each do |buddy| %>
+              <%= render 'users/avatar', user: buddy %>
+            <% end %>
             </div>
           </div>
           <div class="mybuddies">
             <h3 class="mybuddies-title">Mes adversaires de run</h3>
             <div class="mybuddies_avatars">
-            adversaires_buddies
+            <% @user.adversaires_buddies.each do |buddy| %>
+              <%= render 'users/avatar', user: buddy %>
+            <% end %>
             </div>
           </div>
           <div class="mybuddies">
             <h3 class="mybuddies-title">Mes selfies de run</h3>
             <div class="mybuddies_avatars">
-            events_as_participant
+            <% @user.events_as_participant.each do |event| %>
+                  <% unless event.photos.nil? %>
+                    <% event.photos.each do |photo| %>
+                      <%= cl_image_tag photo.path, width: 250, height: 250, crop: :fill %>
+                    <% end %>
+                  <% end %>
+            <% end %>
             </div>
           </div>
         </div>
