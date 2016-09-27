@@ -30,11 +30,11 @@ class User < ApplicationRecord
   end
 
   def my_run_buddies
-    events_as_participant.map{|event| event.users.where.not(id: self.id).where(users: {company: self.company})}.flatten.uniq
+    events_as_participant.map{|event| event.users.where.not(id: self.id)}.flatten.uniq
   end
 
   def adversaires_buddies
-    events_as_participant.map{|event| event.users.where.not(id: self.id, users: {company: self.company})}.flatten.uniq
+    events_as_participant.map{|event| event.users.where.not(id: self.id)}.flatten.uniq
 
   end
 

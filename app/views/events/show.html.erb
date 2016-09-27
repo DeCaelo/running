@@ -1,0 +1,155 @@
+<% case @event.type_of %>
+  <% when "Run fractionné" %>
+    <% photo = "interval.jpg" %>
+  <% when "Run endurance" %>
+    <% photo = "endurance.jpg" %>
+  <% when "Run rapide" %>
+    <% photo = "cool_run.jpg" %>
+  <% when "Blabla run" %>
+    <% photo = "chatting_run.jpg" %>
+  <% when "Marche rapide" %>
+    <% photo = "runners-feet.jpg" %>
+  <% else %>
+    <% photo = "pleasant_walk.jpg" %>
+  <% end %>
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(<%= image_path photo, width: 600, height: 300, crop: :fill %>);"></div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="event">
+          <div class="event_header">
+            <div class='event-date'>
+              <div class= "date-show">
+                <div class="public_private">
+                  <% if @event.private %>
+                    <%= "PRIVE" %>
+                  <% else %>
+                    <%= "PUBLIC" %>
+                  <% end  %>
+                </div>
+                <span style="margin-left: 20px;"> <%= @event.datetime.strftime('%e %B %Y') %> - <%= @event.datetime.strftime('%H:%M') %> </span>
+              </div>
+              <div class="event_type">
+                <div class="detailed-type">
+                  <h3>
+                   <%= @event.type_of %> -
+                     <% if @event.time_goal %>
+                       <%= @event.time_goal_to_s %>
+                     <% end %>
+                     <% if @event.trail_goal %>
+                        <%= @event.trail_goal %> km
+                     <% end %>
+                  </h3>
+                  <p>
+                    <% if policy(@event).edit? %>
+                      <%= link_to edit_event_path(@event) do %>
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                      <% end %>
+                    <% end %>
+                    <% if policy(@event).destroy? %>
+                      <%= link_to event_path, method: :delete do %>
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                      <% end %>
+                    <% end %>
+                  </p>
+                </div>
+                <div class="event_update_delete">
+                  <i class="fa fa-map-marker"></i> RDV - <%= @event.meeting_point %>
+                </div>
+              </div>
+            </div>
+            <div class="organizer-avatar">
+              <%= render "users/avatar", user: @event.user %>
+              <div class="organizer">
+                <p>Organisé par <%= @event.user.first_name.capitalize %> <%= @event.user.last_name.capitalize  %></p>
+              </div>
+            </div>
+          </div>
+          <div class="event-details">
+            <div class="description">
+              <div class="description-container">
+                <div class="description-activity">
+                  <% unless @event.description.blank? %>
+                    <h4>
+                      <i class="fa fa-pencil-square-o color-icon" aria-hidden="true"></i>
+                      <%= "Description de l'activité" %>
+                    </h4>
+                    <p><%= @event.description %></p>
+                  <% end %>
+                </div>
+                <div class="messages">
+                  <h4>
+                    <i class="fa fa-comments color-icon" aria-hidden="true"></i>
+                    <%= "Messages" %>
+                  </h4>
+                  <% unless @event.messages.empty? %>
+                    <% @event.messages.each do |message| %>
+                        <%= render 'events/message', message: message %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="description-footer">
+                <%= render 'events/message_box' %>
+              </div>
+            </div>
+            <div class="participation">
+              <%= render "events/participations", event: @event %>
+            </div>
+          </div>
+          <div class="photos">
+            <div class="photos_header">
+              <h4><%= "Vos selfies!" %></h4>
+              <div class="photos_btn">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPhotos">
+                  <i class="fa fa-camera-retro" aria-hidden="true"></i>
+                   Postez vos selfies!
+                </button>
+              </div>
+            </div>
+            <div class="container">
+              <div class="row">
+                <% unless @event.photos.nil? %>
+                  <% @event.photos.each do |photo| %>
+                    <div class="col-xs-4 col-sm-3 col-sm-2">
+                      <div class="photo pad-top">
+                        <%= cl_image_tag photo.path, width: 250, height: 250, crop: :fill %>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+                </div>
+              </div>
+          </div>
+          <div class="back_events">
+            <i class="fa fa-arrow-left color-icon" aria-hidden="true"></i>
+            <%= link_to "Revenir aux événements", events_path %>
+          </div>
+        <% if @event.latitude &&  @event.longitude %>
+          <%= render "events/static_map", event: @event %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="modal fade" id="addPhotos" tabindex="-1" role="dialog" aria-labelledby="addPhotosLabel">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         <h4 class="modal-title" id="addPhotosLabel">Partagez vos selfies! </h4>
+       </div>
+       <div class="modal-body">
+        <%= simple_form_for(@event, :url => add_pictures_path, :method => :patch) do |f| %>
+        <%= f.input :photos, as: :attachinary  %>
+        <%= f.button :submit, value: 'Postez', class: "btn btn-primary" %>
+        <% end %>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       </div>
+     </div>
+   </div>
+ </div>
