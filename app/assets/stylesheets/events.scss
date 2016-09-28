@@ -25,7 +25,7 @@
   display: flex;
   align-items: center;
   padding-bottom: 10px;
-  border-bottom: 1px $green solid;
+  border-bottom: 1px $green2 solid;
 }
 
 .ev-time {
@@ -45,7 +45,7 @@
 
 .ev-status {
   color:white;
-  background: $green;
+  background: $green2;
   padding: 3px 15px;
   border-radius: 3px;
 }
@@ -88,7 +88,7 @@
 
 .index-menu {
   font-family: $gt-walsheim-bold;
-  background-color: $green;
+  background-color: $green2;
   margin-top: 45px;
   border-radius: 5px;
   display: flex;
@@ -114,7 +114,7 @@
   font-family: $gt-walsheim-bold;
   color: white;
   width: 100%;
-  background-color: $green;
+  background-color: $green2;
   padding: 3px 20px;
   border-radius: 5px 5px 0 0;
 }
@@ -132,6 +132,7 @@
   margin: 18px 0;
 }
 .events-counter {
+  font-family: $gt-walsheim-bold;
   margin-top: 0;
   color: black;
 }
@@ -220,7 +221,6 @@
   padding: 5px 15px;
   border-radius: 8px;
   left: -16px;
-/*    right: -20px;*/
   top: -22px;
   background-color: #B3B3B3;
   transform:rotate(-10deg);
@@ -267,8 +267,9 @@
 }
 
 .event-banner {
-  height: 276px;
+  height: 400px;
   background-size: cover;
+  margin-top: 70px;
 }
 
 
