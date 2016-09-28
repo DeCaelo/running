@@ -1,0 +1,8 @@
+var message = $('<%= j render "events/message", message: @message %>').hide();
+
+$('.messages').append(message);
+message.slideDown();
+ $('#message_content').val('');
+
+var messages = $(".description-container");
+messages.animate({ scrollTop: messages.prop("scrollHeight") - messages.height() + 400 }, 1000);

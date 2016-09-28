@@ -12,7 +12,7 @@
   <div class="ev-content">
     <div class="ev-photo">
       <% if event.user.photo? %>
-        <%= cl_image_tag event.user.photo.path, class: 'ev-avatar', width: 200, height: 200, crop: :fill , data: {toggle: "tooltip"}, title: event.user.full_name + " " + event.user.job_title %>
+        <%= cl_image_tag event.user.photo.path, class: 'ev-avatar', width: 200, height: 200, crop: :fill , data: {toggle: "tooltip"}, title: event.user.full_name %>
       <% else %>
         <%= image_tag 'avatar.jpg', class: 'ev-avatar', width: 200, height: 200, crop: :fill , data: {toggle: "tooltip"}, title: event.user.full_name %>
       <% end %>
