@@ -35,7 +35,7 @@
 .ev-type {
   flex: 1 0 auto;
   font-size: 20px;
-  font-family: 'Libre Baskerville', serif;
+  font-family: $tiempos-regular, serif;
   color: #222222
 }
 .ev-type:hover {
@@ -149,7 +149,7 @@
   padding-left: 15px;
   margin: auto 0;
   font-size: 20px;
-  font-family: 'Libre Baskerville', serif;
+  font-family: $tiempos-regular, serif;
   color: #1086b9;
 }
 .events-type:hover {
@@ -203,7 +203,6 @@
   padding: 5px 15px;
   border-radius: 8px;
   left: -16px;
-/*    right: -20px;*/
   top: -22px;
   background-color: orange;
   transform:rotate(-10deg);
@@ -268,9 +267,6 @@
   background-size: cover;
 }
 
-// .all-child.active {
-//   @extend .hvr-underline-from-left:hover;
-// }
 
 .color-icon {
   color: $green;

@@ -21,6 +21,24 @@ $base-height: 1.4;
 }
 $brandon-light: "BrandonLight";
 
+@font-face {
+  font-family: "GtWalsheimBold";
+  src: font-url('GtWalsheimBold.eot');
+  src: font-url('GtWalsheimBold.eot?#iefix') format('embedded-opentype'),
+       font-url('GtWalsheimBold.woff') format('woff'),
+       font-url('GtWalsheimBold.ttf') format('truetype')
+}
+$gt-walsheim-bold: "GtWalsheimBold";
+
+@font-face {
+  font-family: "TiemposRegular";
+  src: font-url('TiemposRegular.eot');
+  src: font-url('TiemposRegular.eot?#iefix') format('embedded-opentype'),
+       font-url('TiemposRegular.woff') format('woff'),
+       font-url('TiemposRegular.ttf') format('truetype')
+}
+$tiempos-regular: "TiemposRegular";
+
 // Font-size and line-height
 $base-size: 16px;
 $base-height: 1.4;

@@ -89,6 +89,7 @@
         }
       }
       .participation_all {
+        font-family:$tiempos-regular;
         padding: 10px;
         .particpation_avatar {
           display: flex;
@@ -156,7 +157,7 @@
       margin-left: -1px;
     }
     h4 {
-      border-bottom: 3px solid $blue;
+      border-bottom: 3px solid $green;
       margin-bottom: 15px;
     }
   }
