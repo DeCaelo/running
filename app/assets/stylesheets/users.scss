@@ -17,6 +17,7 @@
 
 
 .avatar-description {
+  font-family:$gt-walsheim-bold;
   text-align: center;
   width: 25%;
   font-size: 15px;
@@ -34,11 +35,8 @@
 }
 
 .stats {
-  // display: flex;
-  // justify-content: space-around;
-  // align-items: center;
+  font-family:$gt-walsheim-bold;
   background-color: white;
-  // border-radius: 12px;
   margin-top:50px;
   width: 70%;
   border-radius: 12px;
@@ -49,12 +47,12 @@
 }
 
 #speed {
-  font-family: Libre Baskerville;
+  font-family: $tiempos-regular;
   font-weight: bold;
 }
 
 #distance {
-  font-family: Libre Baskerville;
+  font-family: $tiempos-regular;
   font-weight: bold;
 }
 
@@ -66,21 +64,19 @@
   padding-top: 0px;
 }
 
-// #time-run {
-//   padding-top: 20px;
-// }
 
 .number {
   font-size: 75px;
 }
 
 .mybuddies {
+  font-family:$gt-walsheim-bold;
   background-color: white;
   border-radius: 12px;
   margin-bottom: 50px;
   text-align: center;
   h3 {
-    color: $blue;
+    color: $green2;
     margin-bottom: 0px;
   }
 }
@@ -90,7 +86,7 @@
    z-index: 4;
    overflow: hidden;
    text-align: center;
-   color: $blue;
+   color: $green2;
  &:before, &:after {
      position: absolute;
      top: 51%;
@@ -98,7 +94,7 @@
      width: 50%;
      height: 1px;
      content: '\a0';
-     background-color: $blue;
+     background-color: $green2;
  }
  &:before {
      margin-left: -50%;
@@ -136,7 +132,6 @@
 
 .button-update {
   border-radius: 12px;
-  // background-color: white;
   height: 117px;
   text-align: center;
   padding-top: 63px;
@@ -146,10 +141,10 @@
 }
 
 #participations {
-  font-family: libre baskerville;
+  font-family: $tiempos-regular;
   font-weight: bold;
   p {
-    font-family: Libre Baskerville;
+    font-family: $tiempos-regular;
   }
 }
 
