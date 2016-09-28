@@ -5,6 +5,7 @@
     margin-top: 20px;
   }
   .event_header {
+    font-family: $gt-walsheim-bold;
     margin-top:200px;
     display: flex;
     justify-content: space-between;
@@ -49,11 +50,13 @@
       background: white;
     }
     .description-container {
+      font-family: $gt-walsheim-bold;
       height: 427px;
       overflow: scroll;
       padding: 20px 30px;
     }
     .description-footer {
+      font-family: $tiempos-regular;
       padding: 30px;
       background: rgba(249, 249, 249, 0.38);
     }
@@ -147,6 +150,7 @@
     font-size: 24px;
   }
   .photos {
+    font-family: $gt-walsheim-bold;
     border: 3px solid white;
     border-radius: 12px;
     padding: 20px;
@@ -162,6 +166,7 @@
     }
   }
     .back_events {
+      font-family: $gt-walsheim-bold;
       margin-top: 30px;
       margin-bottom: 30px;
     }
