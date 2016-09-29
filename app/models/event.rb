@@ -5,6 +5,9 @@ class Event < ApplicationRecord
   has_many :users, through: :participations
   has_attachments :photos, maximum: 10
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   MEETING = ["Run rapide", "Run fractionné", "Run endurance", "Blabla run", "Marche rapide", "Marche plaisante"]
 
   validates :type_of, inclusion: { in: MEETING }
