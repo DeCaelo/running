@@ -12,7 +12,6 @@ class EventsController < ApplicationController
       @events = Event.where(user_id: current_user)
       @my_participations = current_user.events_only_as_participant
     elsif @filter == 'private'
-      # @events = policy_scope(Event).my_private_events(current_user)
       @events = current_user.private_events
       p @events
     elsif @filter == 'refused'
@@ -23,7 +22,6 @@ class EventsController < ApplicationController
       @events = Event.where(private: false) + current_user.private_events
       @events.sort_by! { |ev| ev[:datetime].to_i }
     end
-    # @events = @events.group_by(&:datetime)
     @events_sorted = @events.group_by{ |e| e.datetime.to_date }
     @my_participations_sorted = @my_participations.group_by{ |e| e.datetime.to_date } if @my_participations
   end
@@ -36,7 +34,6 @@ class EventsController < ApplicationController
         marker.lat event.latitude
         marker.lng event.longitude
       end
-     # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
   end
 
